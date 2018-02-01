@@ -5,8 +5,8 @@
 
 		<!-- 设定数据库连接参数 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/test"
-			userId="root" password="root">
+			connectionURL="jdbc:mysql://rm-2zexc221rpq83tolxo.mysql.rds.aliyuncs.com:3306/taxi"
+			userId="root" password="P@$$W0rd">
 		</jdbcConnection>
 <!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
 			connectionURL="jdbc:oracle:thin:@192.168.0.70:1521:DevDB"
@@ -14,7 +14,7 @@
 		</jdbcConnection> -->
 		
 		<!-- 表名与类名 -->
-		<jdbcTableName tableName="user" className="User"/>
+		<jdbcTableName tableName="passenger_card" className="PassengerCard"/>
 
 		<!--设定实体类信息 package-包路径,saveFile-生成文件存放文件夹-->
 		<javaModelGenerator package="cn.com.leon.user.domain" saveFile="e:\mybatis-generated\java" >

@@ -120,10 +120,10 @@ public abstract class AbstractGenerator {
 			file.mkdirs();
 		}
 		try {
-			FileOutputStream fos = new FileOutputStream(filePath + "\\" + className +".java");
+			FileOutputStream fos = new FileOutputStream(filePath + File.separator + className +".java");
 			fos.write(string.getBytes());
 			fos.close();
-			System.out.println("文件生成成功,已经保存为:" + filePath + "\\" + className +".java");
+			System.out.println("文件生成成功,已经保存为:" + filePath + File.separator + className +".java");
 		} catch (FileNotFoundException e) {
 			System.out.println("文件路径错误");
 			e.printStackTrace();
@@ -145,10 +145,10 @@ public abstract class AbstractGenerator {
 			file.mkdirs();
 		}
 		try {
-			FileOutputStream fos = new FileOutputStream(xmlPath + "\\" + "mybatis-" + ToolsUtil.lowerFirstCha(className) +".xml");
+			FileOutputStream fos = new FileOutputStream(xmlPath + File.separator + "mybatis-" + ToolsUtil.lowerFirstCha(className) +".xml");
 			fos.write(string.getBytes());
 			fos.close();
-			System.out.println("文件生成成功,已经保存为:" + xmlPath + "\\" + "mybatis-" + ToolsUtil.lowerFirstCha(className) +".xml");
+			System.out.println("文件生成成功,已经保存为:" + xmlPath +  File.separator + "mybatis-" + ToolsUtil.lowerFirstCha(className) +".xml");
 		} catch (FileNotFoundException e) {
 			System.out.println("文件路径错误");
 			e.printStackTrace();
@@ -169,7 +169,6 @@ public abstract class AbstractGenerator {
 			rs = ps.executeQuery();
 			resultSetMetaData = rs.getMetaData();
 		} catch (SQLException e) {
-			System.out.println("��ݿ���ѯʧ��,��������Ƿ���ȷ!");
 			e.printStackTrace();
 		}
 	}

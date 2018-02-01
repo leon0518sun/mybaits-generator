@@ -45,7 +45,7 @@ public class MybatisXMLGenerator extends AbstractGenerator {
 					+ "Count\" parameterType=\"" + pojoPackage + "." + ToolsUtil.upperFirstCha(className) + "\" resultType=\"Long\">");
 			countBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR);
 //			countBuffer.append("SELECT COUNT(" + tablePrimaryKey + ") FROM " + tableName + " WHERE validStatus='1'");
-			countBuffer.append("SELECT COUNT(" + tablePrimaryKey + ") FROM " + tableName + " WHERE 1 = '1'");//锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
+			countBuffer.append("SELECT COUNT(" + tablePrimaryKey + ") FROM " + tableName + " WHERE 1 = '1'");
 			countBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR);
 			countBuffer.append("</select>");
 		} catch (SQLException e) {
@@ -70,7 +70,7 @@ public class MybatisXMLGenerator extends AbstractGenerator {
 			findByIdBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR);
 			findByIdBuffer.append("<select id=\"find" + ToolsUtil.upperFirstCha(className) 
 					+ "ById\" parameterType=\"" + pojoPackage + "." + ToolsUtil.upperFirstCha(className) + "\"" 
-					+ " resultType=\"" + voPojoPackage + "." + ToolsUtil.upperFirstCha(className) + "Vo\">");
+					+ "  resultMap=\"" +ToolsUtil.lowerFirstCha(className) +"ResultMap\">");
 			findByIdBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR);
 			findByIdBuffer.append("SELECT ").append(LINE_SEPARATOR);
 			for(int i = 1;i <= tableLength; i++){
@@ -136,7 +136,7 @@ public class MybatisXMLGenerator extends AbstractGenerator {
 					if(rolumnDBName.endsWith("Name") 
 							|| rolumnDBName.endsWith("name")
 							|| rolumnDBName.endsWith("NAME")){
-						findAllBuffer.append(" AND " + rolumnDBName + " like " + "\'%#{" + ToolsUtil.tableNameToBeanName(rolumnDBName) + "}%\'");
+						findAllBuffer.append(" AND " + rolumnDBName + " like " + "\'%${" + ToolsUtil.tableNameToBeanName(rolumnDBName) + "}%\'");
 					}else{
 						findAllBuffer.append(" AND " + rolumnDBName + " = " + "#{" + ToolsUtil.tableNameToBeanName(rolumnDBName) + "}");
 						
@@ -154,7 +154,7 @@ public class MybatisXMLGenerator extends AbstractGenerator {
 				findAllBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR);
 				findAllBuffer.append("<select id=\"findAll" + ToolsUtil.upperFirstCha(className) 
 						+ "ForPage\" parameterType=\"" + pojoPackage + "." + ToolsUtil.upperFirstCha(className) + "\"" 
-						+ " resultType=\"" + voPojoPackage + "." + ToolsUtil.upperFirstCha(className) + "Vo\">");
+						+ "  resultMap=\"" +ToolsUtil.lowerFirstCha(className) +"ResultMap\"\">");
 				findAllBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR);
 				findAllBuffer.append("SELECT ").append(LINE_SEPARATOR);
 				findAllBuffer.append(TAB_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR);
@@ -181,7 +181,7 @@ public class MybatisXMLGenerator extends AbstractGenerator {
 					if(rolumnDBName.endsWith("Name") 
 							|| rolumnDBName.endsWith("name")
 							|| rolumnDBName.endsWith("NAME")){
-						findAllBuffer.append(" AND A." + rolumnDBName + " like " + "\'%#{" + ToolsUtil.tableNameToBeanName(rolumnDBName) + "}%\'");
+						findAllBuffer.append(" AND A." + rolumnDBName + " like " + "\'%${" + ToolsUtil.tableNameToBeanName(rolumnDBName) + "}%\'");
 					}else{
 						findAllBuffer.append(" AND A." + rolumnDBName + " = " + "#{" + ToolsUtil.tableNameToBeanName(rolumnDBName) + "}");
 						
@@ -333,7 +333,7 @@ public class MybatisXMLGenerator extends AbstractGenerator {
 	 */
 	private static String createXmlHeader(String pojoPackage,String className,String tableName) {
 		StringBuffer xmlHeaderBuffer  = new StringBuffer();
-		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
+//		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
 		xmlHeaderBuffer.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>").append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append("<!DOCTYPE mapper PUBLIC \"-//mybatis.org//DTD Mapper 3.0//EN\" \"http://mybatis.org/dtd/mybatis-3-mapper.dtd\">").append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
@@ -342,7 +342,7 @@ public class MybatisXMLGenerator extends AbstractGenerator {
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(TAB_SEPARATOR).append(TAB_SEPARATOR);
-		xmlHeaderBuffer.append("<resultMap type=\""+ voPojoPackage + "." + className + "Vo\" id=\""+ ToolsUtil.lowerFirstCha(className) +"ResultMap\">");
+		xmlHeaderBuffer.append("<resultMap type=\""+ pojoPackage + "." + className + "\" id=\""+ ToolsUtil.lowerFirstCha(className) +"ResultMap\">");
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(TAB_SEPARATOR).append(TAB_SEPARATOR).append(TAB_SEPARATOR);
 		try {
