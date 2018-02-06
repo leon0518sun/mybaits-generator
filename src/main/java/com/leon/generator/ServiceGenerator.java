@@ -101,6 +101,7 @@ public class ServiceGenerator extends AbstractGenerator {
 			stringBuffer.append(classHeader(PUBLIC, className + "ServiceImpl", false, false, null, className+"Service"));
 			stringBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR);
 			stringBuffer.append("@Autowired");
+			stringBuffer.append(LINE_SEPARATOR);
 			stringBuffer.append(PRIVATE + BLANK_SPACE + ToolsUtil.upperFirstCha(className) + "Dao" + BLANK_SPACE + ToolsUtil.lowerFirstCha(className) + "dao;");
 			stringBuffer.append(LINE_SEPARATOR).append(LINE_SEPARATOR);
 			stringBuffer.append(setterMethod(ToolsUtil.upperFirstCha(className) + "Dao", ToolsUtil.lowerFirstCha(className) + "dao"));
