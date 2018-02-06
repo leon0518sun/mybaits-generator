@@ -1,4 +1,4 @@
-package com.leon.wow.util;
+package com.leon.util;
 
 import java.util.ArrayList;
 import java.util.HashSet;

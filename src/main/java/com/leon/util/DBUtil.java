@@ -1,10 +1,10 @@
-package com.leon.wow.util;
+package com.leon.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import com.leon.wow.domain.DatabaseInfo;
+import com.leon.domain.DatabaseInfo;
 /**
  * jdbc工具类，提供获得连接、关闭连接的方法
  * @author leon

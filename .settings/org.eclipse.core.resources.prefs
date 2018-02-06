@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
-encoding//src/main/java/com/leon/wow/generator/DaoGeneratorJDBCImpl.java=UTF-8
-encoding//src/main/java/com/leon/wow/generator/DaoGeneratorSpringImpl.java=UTF-8
-encoding//src/main/java/com/leon/wow/generator/ElementsXML.java=UTF-8
-encoding//src/main/java/com/leon/wow/generator/MybatisXMLGenerator.java=UTF-8
-encoding//src/main/java/com/leon/wow/generator/PojoGenerator.java=UTF-8
-encoding//src/main/java/com/leon/wow/generator/ServiceGenerator.java=UTF-8
+encoding//src/main/java/com/leon/generator/DaoGeneratorJDBCImpl.java=UTF-8
+encoding//src/main/java/com/leon/generator/DaoGeneratorSpringImpl.java=UTF-8
+encoding//src/main/java/com/leon/generator/ElementsXML.java=UTF-8
+encoding//src/main/java/com/leon/generator/MybatisXMLGenerator.java=UTF-8
+encoding//src/main/java/com/leon/generator/PojoGenerator.java=UTF-8
+encoding//src/main/java/com/leon/generator/ServiceGenerator.java=UTF-8

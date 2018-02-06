@@ -1,10 +1,10 @@
-package com.leon.wow.generator;
+package com.leon.generator;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.leon.wow.util.ToolsUtil;
+import com.leon.util.ToolsUtil;
 
 /**
  * 基于Spring框架的Dao层自动生成类
@@ -78,12 +78,12 @@ public class DaoGeneratorSpringImpl extends AbstractGenerator implements DaoGene
 	 * 创建Dao接口的方法 
 	 */
 	public void createDao(String daoPackage, String daoPath, String pojoPackage ,String className) {
-		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
+//		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
 		StringBuffer daoBuffer = new StringBuffer();
 		daoBuffer.append("package" + BLANK_SPACE + daoPackage).append(";").append(LINE_SEPARATOR);
 		daoBuffer.append(LINE_SEPARATOR).append(LINE_SEPARATOR);
 		daoBuffer.append("import " + pojoPackage + "." + ToolsUtil.upperFirstCha(className)).append(";").append(LINE_SEPARATOR);
-		daoBuffer.append("import" + BLANK_SPACE + voPojoPackage + "." + ToolsUtil.upperFirstCha(className) + "Vo").append(";").append(LINE_SEPARATOR);
+//		daoBuffer.append("import" + BLANK_SPACE + voPojoPackage + "." + ToolsUtil.upperFirstCha(className) ).append(";").append(LINE_SEPARATOR);
 		daoBuffer.append("import java.util.*;").append(LINE_SEPARATOR);
 		daoBuffer.append(LINE_SEPARATOR);
 		daoBuffer.append("public interface " + ToolsUtil.upperFirstCha(className) + "Dao {");
@@ -105,7 +105,7 @@ public class DaoGeneratorSpringImpl extends AbstractGenerator implements DaoGene
 				+ "ById(" + ToolsUtil.upperFirstCha(className) + BLANK_SPACE + ToolsUtil.lowerFirstCha(className) + ") throws Exception;");
 		daoBuffer.append(LINE_SEPARATOR).append(LINE_SEPARATOR);
 		daoBuffer.append(TAB_SEPARATOR);
-		daoBuffer.append("public List<" + ToolsUtil.upperFirstCha(className) + "Vo> findAll" + ToolsUtil.upperFirstCha(className) 
+		daoBuffer.append("public List<" + ToolsUtil.upperFirstCha(className) + "> findAll" + ToolsUtil.upperFirstCha(className) 
 				+ "ForPage(" + ToolsUtil.upperFirstCha(className) + BLANK_SPACE + ToolsUtil.lowerFirstCha(className) + ") throws Exception;");
 		daoBuffer.append(LINE_SEPARATOR).append(LINE_SEPARATOR).append(TAB_SEPARATOR);
 		daoBuffer.append("public Long findAll" + ToolsUtil.upperFirstCha(className) 
@@ -145,7 +145,7 @@ public class DaoGeneratorSpringImpl extends AbstractGenerator implements DaoGene
 	private String createImplFindAllForPageMethod(String className) {
 		StringBuffer findAllBuffer = new StringBuffer();
 		findAllBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR);
-		findAllBuffer.append("public List<" +ToolsUtil.upperFirstCha(className)+ "Vo>");
+		findAllBuffer.append("public List<" +ToolsUtil.upperFirstCha(className)+ ">");
 		findAllBuffer.append(BLANK_SPACE);
 		findAllBuffer.append("findAll" + ToolsUtil.upperFirstCha(className));
 		findAllBuffer.append("ForPage(" + ToolsUtil.upperFirstCha(className) + BLANK_SPACE + ToolsUtil.lowerFirstCha(className) + ") throws Exception {");

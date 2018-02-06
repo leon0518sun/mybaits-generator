@@ -1,10 +1,10 @@
-package com.leon.wow.generator;
+package com.leon.generator;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.leon.wow.util.ToolsUtil;
+import com.leon.util.ToolsUtil;
 
 
 /**
@@ -36,7 +36,9 @@ public class PojoGenerator extends AbstractGenerator {
 					object = "java.util.Date";
 				pojoBuffer.append("import " + object.toString() + ";" + LINE_SEPARATOR);
 			}
-			pojoBuffer.append(classHeader("public", className, false, false,"JavaBeanBase",null));
+			pojoBuffer.append("import" + BLANK_SPACE + "org.springframework.*;");			
+			pojoBuffer.append(LINE_SEPARATOR);
+			pojoBuffer.append(classHeader("public", className, false, false,null,null));
 			for(int i = 1; i <= tableLength;i++){
 				String rolumnClass = resultSetMetaData.getColumnClassName(i);
 				String rolumnDBName = resultSetMetaData.getColumnName(i);

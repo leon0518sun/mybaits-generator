@@ -1,10 +1,10 @@
-package com.leon.wow.generator;
+package com.leon.generator;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.leon.wow.util.ToolsUtil;
+import com.leon.util.ToolsUtil;
 
 /**
  * 创建Service层的自动生成类
@@ -21,12 +21,12 @@ public class ServiceGenerator extends AbstractGenerator {
 	 */
 	public static void createSerivce(String servicePackage, String servicePath,
 			String pojoPackage, String className) {
-		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
+//		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
 		StringBuffer serviceBuffer = new StringBuffer();
 		serviceBuffer.append("package" + BLANK_SPACE + servicePackage).append(";").append(LINE_SEPARATOR);
 		serviceBuffer.append(LINE_SEPARATOR).append(LINE_SEPARATOR);
 		serviceBuffer.append("import " + pojoPackage + "." + ToolsUtil.upperFirstCha(className)).append(";").append(LINE_SEPARATOR);
-		serviceBuffer.append("import " + voPojoPackage + "." + ToolsUtil.upperFirstCha(className) + "Vo").append(";").append(LINE_SEPARATOR);
+//		serviceBuffer.append("import " + voPojoPackage + "." + ToolsUtil.upperFirstCha(className) + "Vo").append(";").append(LINE_SEPARATOR);
 		serviceBuffer.append("import java.util.*;").append(LINE_SEPARATOR);
 		serviceBuffer.append(LINE_SEPARATOR);
 		serviceBuffer.append("public interface " + ToolsUtil.upperFirstCha(className) + "Service {");
@@ -48,7 +48,7 @@ public class ServiceGenerator extends AbstractGenerator {
 				+ "ById(" + ToolsUtil.upperFirstCha(className) + BLANK_SPACE + ToolsUtil.lowerFirstCha(className) + ") throws Exception;");
 		serviceBuffer.append(LINE_SEPARATOR).append(LINE_SEPARATOR);
 		serviceBuffer.append(TAB_SEPARATOR);
-		serviceBuffer.append("public List<" + ToolsUtil.upperFirstCha(className) + "Vo> findAll" + ToolsUtil.upperFirstCha(className) 
+		serviceBuffer.append("public List<" + ToolsUtil.upperFirstCha(className) + "> findAll" + ToolsUtil.upperFirstCha(className) 
 				+ "ForPage(" + ToolsUtil.upperFirstCha(className) + BLANK_SPACE + ToolsUtil.lowerFirstCha(className) + ") throws Exception;");
 		serviceBuffer.append(LINE_SEPARATOR).append(LINE_SEPARATOR).append(TAB_SEPARATOR);
 		serviceBuffer.append("public Long findAll" + ToolsUtil.upperFirstCha(className) 
@@ -67,7 +67,7 @@ public class ServiceGenerator extends AbstractGenerator {
 	 */
 	public static void createServiceImpl(String servicePackage, String servicePath,
 			String pojoPackage, String daoPackage,String className) {
-		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
+//		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
 		StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append("package").append(BLANK_SPACE).append(servicePackage).append(";");
 		stringBuffer.append(LINE_SEPARATOR).append(LINE_SEPARATOR);
@@ -90,13 +90,17 @@ public class ServiceGenerator extends AbstractGenerator {
 			stringBuffer.append(LINE_SEPARATOR);
 			stringBuffer.append(LINE_SEPARATOR);
 			stringBuffer.append("import" + BLANK_SPACE + pojoPackage + "." + ToolsUtil.upperFirstCha(className)).append(";").append(LINE_SEPARATOR);
-			stringBuffer.append("import" + BLANK_SPACE + voPojoPackage + "." + ToolsUtil.upperFirstCha(className) + "Vo").append(";").append(LINE_SEPARATOR);
+//			stringBuffer.append("import" + BLANK_SPACE + voPojoPackage + "." + ToolsUtil.upperFirstCha(className) + "Vo").append(";").append(LINE_SEPARATOR);
 			stringBuffer.append("import" + BLANK_SPACE + servicePackage + "." + ToolsUtil.upperFirstCha(className) + "Service;");
 			stringBuffer.append(LINE_SEPARATOR);
 			stringBuffer.append("import" + BLANK_SPACE + daoPackage + "." + ToolsUtil.upperFirstCha(className) + "Dao;");
 			stringBuffer.append(LINE_SEPARATOR);
+			stringBuffer.append("import" + BLANK_SPACE + "org.springframework.*;");
+			stringBuffer.append(LINE_SEPARATOR);
+			stringBuffer.append("@Service(\""+ToolsUtil.lowerFirstCha(className) + "Service\")");
 			stringBuffer.append(classHeader(PUBLIC, className + "ServiceImpl", false, false, null, className+"Service"));
 			stringBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR);
+			stringBuffer.append("@Autowired");
 			stringBuffer.append(PRIVATE + BLANK_SPACE + ToolsUtil.upperFirstCha(className) + "Dao" + BLANK_SPACE + ToolsUtil.lowerFirstCha(className) + "dao;");
 			stringBuffer.append(LINE_SEPARATOR).append(LINE_SEPARATOR);
 			stringBuffer.append(setterMethod(ToolsUtil.upperFirstCha(className) + "Dao", ToolsUtil.lowerFirstCha(className) + "dao"));
@@ -155,7 +159,7 @@ public class ServiceGenerator extends AbstractGenerator {
 	private static String createImplFindAllForPageMethod(String className) {
 		StringBuffer findAllBuffer = new StringBuffer();
 		findAllBuffer.append(LINE_SEPARATOR).append(TAB_SEPARATOR);
-		findAllBuffer.append(PUBLIC + BLANK_SPACE + "List<" + ToolsUtil.upperFirstCha(className) + "Vo>"
+		findAllBuffer.append(PUBLIC + BLANK_SPACE + "List<" + ToolsUtil.upperFirstCha(className) + ">"
 				+ BLANK_SPACE + "findAll" + ToolsUtil.upperFirstCha(className) + "ForPage(" + ToolsUtil.upperFirstCha(className) 
 				+ BLANK_SPACE + ToolsUtil.lowerFirstCha(className) + ")");
 		findAllBuffer.append(" throws Exception {").append(LINE_SEPARATOR);

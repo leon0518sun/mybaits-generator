@@ -1,9 +1,9 @@
-package com.leon.wow.generator;
+package com.leon.generator;
 
 import java.sql.SQLException;
 
-import com.leon.wow.domain.DatabaseInfo;
-import com.leon.wow.util.ToolsUtil;
+import com.leon.domain.DatabaseInfo;
+import com.leon.util.ToolsUtil;
 
 /**
  * 自动生成mybatis类的常用方法,并输出.xml文件
@@ -338,7 +338,8 @@ public class MybatisXMLGenerator extends AbstractGenerator {
 		xmlHeaderBuffer.append("<!DOCTYPE mapper PUBLIC \"-//mybatis.org//DTD Mapper 3.0//EN\" \"http://mybatis.org/dtd/mybatis-3-mapper.dtd\">").append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(TAB_SEPARATOR);
-		xmlHeaderBuffer.append("<mapper namespace=\"" + ToolsUtil.upperFirstCha(className) + "Map\">");
+		xmlHeaderBuffer.append("<mapper namespace=\"" +  ToolsUtil.lowerFirstCha(className) + "dao\">");
+//		xmlHeaderBuffer.append("<mapper namespace=\"" + ToolsUtil.upperFirstCha(className) + "Map\">");
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(TAB_SEPARATOR).append(TAB_SEPARATOR);

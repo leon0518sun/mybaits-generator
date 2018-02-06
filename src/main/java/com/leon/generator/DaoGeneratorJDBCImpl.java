@@ -1,10 +1,10 @@
-package com.leon.wow.generator;
+package com.leon.generator;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.leon.wow.util.ToolsUtil;
+import com.leon.util.ToolsUtil;
 
 /**
  * 无框架使用JDBC创建Dao层的自动生成类

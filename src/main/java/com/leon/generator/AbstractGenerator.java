@@ -1,4 +1,4 @@
-package com.leon.wow.generator;
+package com.leon.generator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-import com.leon.wow.util.ToolsUtil;
+import com.leon.util.ToolsUtil;
 
 /**
  * 自动成生类的抽象父类

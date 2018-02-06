@@ -1,4 +1,4 @@
-package com.leon.wow.generator;
+package com.leon.generator;
 
 import java.io.File;
 import java.sql.Connection;
@@ -9,8 +9,8 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import com.leon.wow.domain.DatabaseInfo;
-import com.leon.wow.util.DBUtil;
+import com.leon.domain.DatabaseInfo;
+import com.leon.util.DBUtil;
 
 /**
  * 处理XML配置文件的类

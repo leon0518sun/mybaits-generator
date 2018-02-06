@@ -1,4 +1,4 @@
-package com.leon.wow.generator;
+package com.leon.generator;
 
 public interface DaoGenerator {
 

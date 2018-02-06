@@ -1,4 +1,4 @@
-package com.leon.wow.domain;
+package com.leon.domain;
 
 /**
  * 数据库连接实体类

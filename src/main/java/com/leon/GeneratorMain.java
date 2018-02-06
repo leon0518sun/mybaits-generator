@@ -1,6 +1,6 @@
-package com.leon.wow;
+package com.leon;
 
-import com.leon.wow.generator.ElementsXML;
+import com.leon.generator.ElementsXML;
 
 /**
  * 自动生成代码的主类
@@ -17,7 +17,7 @@ public class GeneratorMain {
 	 * 
 	 */
 	public static void main(String[] args) {
-		String XMLPath = System.getProperty("user.dir") + "/src/main/java/com/leon/wow/ctGeneratorConfig.xml";
+		String XMLPath = System.getProperty("user.dir") + "/src/main/java/com/leon/ctGeneratorConfig.xml";
 		ElementsXML.createFile(XMLPath);
 	}
 

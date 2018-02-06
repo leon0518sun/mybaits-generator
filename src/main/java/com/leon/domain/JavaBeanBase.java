@@ -1,4 +1,4 @@
-package com.leon.wow.domain;
+package com.leon.domain;
 
 /**
  * 所有javaBean的超类,包含分页信息
