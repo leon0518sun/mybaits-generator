@@ -71,7 +71,7 @@ public class ElementsXML extends AbstractGenerator{
 				daoGenerator.createDaoImpl(daoPackage,daoPath,pojoPackage,className);//创建Dao层Impl实现类
 				ServiceGenerator.createSerivce(servicePackage, servicePath, pojoPackage,className);//创建Service接口
 				ServiceGenerator.createServiceImpl(servicePackage, servicePath, pojoPackage,daoPackage,className);//创建ServiceImpl实现类
-				MybatisXMLGenerator.createMapXml(pojoPackage,className,xmlPath,tableName,dbPojo);//创建XML文件
+				MybatisXMLGenerator.createMapXml(pojoPackage,className,xmlPath,tableName,dbPojo,daoPackage);//创建XML文件
 				conn.close();
 			} catch (SQLException e) {
 				System.out.println("数据库连接失败!");

@@ -14,9 +14,9 @@ import com.leon.util.ToolsUtil;
 public class MybatisXMLGenerator extends AbstractGenerator {
 
 	public static void createMapXml(String pojoPackage, String className,
-			String xmlPath, String tableName,DatabaseInfo dbPojo) {
+			String xmlPath, String tableName,DatabaseInfo dbPojo, String daoPackage) {
 		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(createXmlHeader(pojoPackage,className,tableName));
+		stringBuffer.append(createXmlHeader(pojoPackage,className,tableName,daoPackage));
 		stringBuffer.append(createInsert(pojoPackage,className,tableName));
 		stringBuffer.append(createUpdate(pojoPackage,className,tableName));
 		stringBuffer.append(createDelete(pojoPackage,className,tableName));
@@ -331,14 +331,14 @@ public class MybatisXMLGenerator extends AbstractGenerator {
 	 * @param className
 	 * @return
 	 */
-	private static String createXmlHeader(String pojoPackage,String className,String tableName) {
+	private static String createXmlHeader(String pojoPackage,String className,String tableName,String daoPackage) {
 		StringBuffer xmlHeaderBuffer  = new StringBuffer();
 //		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
 		xmlHeaderBuffer.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>").append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append("<!DOCTYPE mapper PUBLIC \"-//mybatis.org//DTD Mapper 3.0//EN\" \"http://mybatis.org/dtd/mybatis-3-mapper.dtd\">").append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(TAB_SEPARATOR);
-		xmlHeaderBuffer.append("<mapper namespace=\"" +  ToolsUtil.lowerFirstCha(className) + "dao\">");
+		xmlHeaderBuffer.append("<mapper namespace=\"" +   daoPackage + "." +ToolsUtil.lowerFirstCha(className) + "dao\">");
 //		xmlHeaderBuffer.append("<mapper namespace=\"" + ToolsUtil.upperFirstCha(className) + "Map\">");
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
 		xmlHeaderBuffer.append(LINE_SEPARATOR);
