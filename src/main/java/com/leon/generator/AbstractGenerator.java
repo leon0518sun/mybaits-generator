@@ -49,16 +49,20 @@ public abstract class AbstractGenerator {
 		StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append(LINE_SEPARATOR);
 		stringBuffer.append(modifier);
-		if(ifAbstract)
-			stringBuffer.append(BLANK_SPACE + "abstract");
-		if(ifStatic)
-			stringBuffer.append(BLANK_SPACE + "static");
+		if(ifAbstract){
+		    stringBuffer.append(BLANK_SPACE + "abstract");
+		}
+		if(ifStatic){
+		    stringBuffer.append(BLANK_SPACE + "static");
+		}
 		stringBuffer.append(BLANK_SPACE + "class");
 		stringBuffer.append(BLANK_SPACE + className);
-		if(!(extendsName == null))
-			stringBuffer.append(BLANK_SPACE + "extends" + BLANK_SPACE + extendsName);
-		if(!(interfaceName == null))
-			stringBuffer.append(BLANK_SPACE + "implements" + BLANK_SPACE + interfaceName);
+		if(!(extendsName == null)){
+		    stringBuffer.append(BLANK_SPACE + "extends" + BLANK_SPACE + extendsName);
+		}
+		if(!(interfaceName == null)){
+		    stringBuffer.append(BLANK_SPACE + "implements" + BLANK_SPACE + interfaceName);
+		}
 		stringBuffer.append(BLANK_SPACE + "{").append(LINE_SEPARATOR);
 		return stringBuffer.toString();
 	}

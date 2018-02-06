@@ -17,8 +17,8 @@ public class GeneratorMain {
 	 * 
 	 */
 	public static void main(String[] args) {
-		String XMLPath = System.getProperty("user.dir") + "/src/main/java/com/leon/ctGeneratorConfig.xml";
-		ElementsXML.createFile(XMLPath);
+		String xmlPath = System.getProperty("user.dir") + "/src/main/java/com/leon/ctGeneratorConfig.xml";
+		ElementsXML.createFile(xmlPath);
 	}
 
 }

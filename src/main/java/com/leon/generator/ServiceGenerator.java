@@ -82,8 +82,9 @@ public class ServiceGenerator extends AbstractGenerator {
 			}
 			strList = ToolsUtil.removeDuplicates(strList);
 			for (Object object : strList) {
-				if(object.toString().equals("java.sql.Date") || object.toString().equals("java.sql.Timestamp"))
-					continue;
+				if("java.sql.Date".equals(object.toString()) || "java.sql.Timestamp".equals(object.toString())){
+				    continue;
+				}
 				stringBuffer.append("import " + object.toString() + ";" + LINE_SEPARATOR);
 			}
 			stringBuffer.append("import java.util.*;");

@@ -12,7 +12,6 @@ import com.leon.util.ToolsUtil;
  *
  */
 public class DaoGeneratorJDBCImpl extends AbstractGenerator implements DaoGenerator {
-	
 	public void createDao(String daoPackage, String daoPath, String pojoPackage, String className) {
 		String voPojoPackage = pojoPackage.substring(0,pojoPackage.lastIndexOf(".")) + ".vo";
 		StringBuffer daoBuffer = new StringBuffer();
